@@ -8,8 +8,8 @@ const EventRegistrationForm: React.FC = () => {
     lastName: '',
     email: '',
     phone: '',
-    organization: '',
-    jobTitle: '',
+    collegeName: '',
+    university: '',
     experienceLevel: '',
     interests: [] as string[]
   })
@@ -48,8 +48,8 @@ const EventRegistrationForm: React.FC = () => {
             last_name: formData.lastName,
             email: formData.email,
             phone: formData.phone || null,
-            organization: formData.organization || null,
-            job_title: formData.jobTitle || null,
+            college_name: formData.collegeName || null,
+            university: formData.university || null,
             experience_level: formData.experienceLevel || null,
             interests: formData.interests.length > 0 ? formData.interests : null
           }
@@ -84,8 +84,8 @@ const EventRegistrationForm: React.FC = () => {
                 lastName: '',
                 email: '',
                 phone: '',
-                organization: '',
-                jobTitle: '',
+                collegeName: '',
+                university: '',
                 experienceLevel: '',
                 interests: []
               })
@@ -100,21 +100,24 @@ const EventRegistrationForm: React.FC = () => {
   }
 
   const experienceLevels = [
-    'Beginner (0-1 years)',
-    'Intermediate (2-5 years)',
-    'Advanced (5+ years)',
-    'Expert (10+ years)'
+    '1st year',
+    '2nd year',
+    '3rd year',
+    '4th year'
   ]
 
   const interestOptions = [
+    'MEAN Stack Development',
+    'UI/UX Design',
+    'Java Development Training',
+    'Python Development Training',
     'Cloud Computing',
-    'DevOps',
-    'Machine Learning',
-    'Web Development',
-    'Mobile Development',
-    'Data Science',
-    'Cybersecurity',
-    'Blockchain'
+    'AWS & DevOps Master Training',
+    'Software Testing Master Program',
+    'Data Science Master Training',
+    'Data Analytics Training',
+    'Cyber Security',
+    'Azure DevOps'
   ]
 
   return (
@@ -242,32 +245,32 @@ const EventRegistrationForm: React.FC = () => {
               </div>
             </div>
 
-            {/* Professional Information */}
+            {/* Academic Information */}
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Professional Information</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Academic Information</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="organization" className="block text-sm font-medium text-gray-700 mb-1">
-                    Organization/University
+                  <label htmlFor="collegeName" className="block text-sm font-medium text-gray-700 mb-1">
+                    College Name
                   </label>
                   <input
                     type="text"
-                    id="organization"
-                    name="organization"
-                    value={formData.organization}
+                    id="collegeName"
+                    name="collegeName"
+                    value={formData.collegeName}
                     onChange={handleInputChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
                 <div>
-                  <label htmlFor="jobTitle" className="block text-sm font-medium text-gray-700 mb-1">
-                    Job Title/Role
+                  <label htmlFor="university" className="block text-sm font-medium text-gray-700 mb-1">
+                    University
                   </label>
                   <input
                     type="text"
-                    id="jobTitle"
-                    name="jobTitle"
-                    value={formData.jobTitle}
+                    id="university"
+                    name="university"
+                    value={formData.university}
                     onChange={handleInputChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
@@ -275,10 +278,10 @@ const EventRegistrationForm: React.FC = () => {
               </div>
             </div>
 
-            {/* Experience Level */}
+            {/* Year Selection */}
             <div>
               <label htmlFor="experienceLevel" className="block text-sm font-medium text-gray-700 mb-1">
-                Experience Level
+                Select Year
               </label>
               <select
                 id="experienceLevel"
@@ -287,7 +290,7 @@ const EventRegistrationForm: React.FC = () => {
                 onChange={handleInputChange}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="">Select your experience level</option>
+                <option value="">Select your year</option>
                 {experienceLevels.map((level) => (
                   <option key={level} value={level}>
                     {level}
